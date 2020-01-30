@@ -23,7 +23,8 @@ defmodule Mocks.MixProject do
     [
       {:httpoison, "~> 1.6"},
       {:poison, "~> 3.1"},
-      {:decimal, "~> 1.0"}
+      {:decimal, "~> 1.0"},
+      {:mox, "~> 0.5", only: :test}
     ]
   end
 end
