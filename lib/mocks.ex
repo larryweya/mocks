@@ -3,16 +3,15 @@ defmodule Mocks do
   Documentation for Mocks.
   """
 
-  @doc """
-  Hello world.
+  def convert_currency(amount, params) do
+    case Mocks.ExchangeRateService.get_exchange_rate(params) do
+      {:ok, rate} ->
+        # convert the amount
+        {:ok, Decimal.mult(amount, rate)}
 
-  ## Examples
-
-      iex> Mocks.hello()
-      :world
-
-  """
-  def hello do
-    :world
+      {:error, _} = error ->
+        # return error as is
+        error
+    end
   end
 end
